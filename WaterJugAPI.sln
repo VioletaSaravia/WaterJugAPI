@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterJugAPI", "WaterJugAPI\WaterJugAPI.csproj", "{0BF6EF5C-939C-4853-80BD-968D10D83EA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWaterJugAPI", "TestWaterJugAPI\TestWaterJugAPI.csproj", "{50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{0BF6EF5C-939C-4853-80BD-968D10D83EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BF6EF5C-939C-4853-80BD-968D10D83EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BF6EF5C-939C-4853-80BD-968D10D83EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
