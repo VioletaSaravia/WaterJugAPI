@@ -1,0 +1,6 @@
+@WaterJugAPI_HostAddress = http://localhost:5009
+
+GET {{WaterJugAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
