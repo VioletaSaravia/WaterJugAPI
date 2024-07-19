@@ -25,7 +25,7 @@ jugs.
 4. Run the project:
 
     ```sh
-    dotnet run
+    dotnet run --project WaterJugAPI
     ```
 
 ## Usage
