@@ -7,6 +7,17 @@ public class WaterJugSolver : IWaterJugSolver
     private static readonly ConcurrentDictionary<(int, int, int), List<Step>>
         CachedResults = [];
 
+    private enum WaterJugAction
+    {
+        Start,
+        Fill1,
+        Fill2,
+        Empty1,
+        Empty2,
+        Pour1To2,
+        Pour2To1,
+    }
+
     private static int Gcd(int a, int b)
     {
         while (a != 0 && b != 0)
@@ -25,7 +36,9 @@ public class WaterJugSolver : IWaterJugSolver
         if (CachedResults.ContainsKey((x, y, z)))
             return CachedResults[(x, y, z)];
 
-        List<Step> result = [new Step(0, 0, "No Solution")];
+        List<Step> result = [new Step(0, 0, "", "No Solution")];
+
+        if (z == 0) return [new Step(0, 0, "", "Solved")];
 
         if (z > Math.Max(x, y) || z % Gcd(x, y) != 0) return result;
 
@@ -85,7 +98,8 @@ public class WaterJugSolver : IWaterJugSolver
                currentState)
         {
             var (prevA, prevB, action) = steps[currentState];
-            result.Add(new Step(currentState.Item1, currentState.Item2, ToString(action)));
+            result.Add(new Step(currentState.Item1, currentState.Item2,
+                ToString(action), currentState == endState ? "Solved" : null));
             currentState = (prevA, prevB);
         }
 
@@ -96,12 +110,12 @@ public class WaterJugSolver : IWaterJugSolver
     private static string ToString(WaterJugAction act) => act switch
     {
         WaterJugAction.Start => "",
-        WaterJugAction.Fill1 => "Fill Jug 1",
-        WaterJugAction.Fill2 => "Fill Jug 2",
-        WaterJugAction.Empty1 => "Empty Jug 1",
-        WaterJugAction.Empty2 => "Empty Jug 2",
-        WaterJugAction.Pour1To2 => "Pour Jug 1 to 2",
-        WaterJugAction.Pour2To1 => "Pour Jug 2 to 1",
+        WaterJugAction.Fill1 => "Fill bucket X",
+        WaterJugAction.Fill2 => "Fill bucket Y",
+        WaterJugAction.Empty1 => "Empty bucket X",
+        WaterJugAction.Empty2 => "Empty bucket Y",
+        WaterJugAction.Pour1To2 => "Transfer from bucket X to Y",
+        WaterJugAction.Pour2To1 => "Transfer from bucket Y to X",
         _ => throw new ArgumentOutOfRangeException(nameof(act), act, null)
     };
 }

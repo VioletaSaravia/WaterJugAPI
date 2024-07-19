@@ -1,2 +1,16 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\sarav\AppData\Local\JetBrains\Rider2024.1\resharper-host\temp\Rider\vAny\CoverageData\_WaterJugAPI.-1257682341\Snapshot\snapshot.utdcvr</s:String></wpf:ResourceDictionary>
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\sarav\AppData\Local\JetBrains\Rider2024.1\resharper-host\temp\Rider\vAny\CoverageData\_WaterJugAPI.-1257682341\Snapshot\snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=34cbc77a_002D894d_002D4c3a_002Dbaff_002D7443414c92e8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestSolveWaterJug_ValidInput" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82::net8.0::TestWaterJugAPI.TestIWaterJugSolver&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82::net8.0::TestWaterJugAPI.TestWaterJugController.SolveWaterJug_InvalidInput_ReturnsBadRequest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82::net8.0::TestWaterJugAPI.TestWaterJugController.SolveWaterJug_ValidInput_ReturnsOkWithSteps&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82::net8.0::TestWaterJugAPI.TestWaterJugController&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82::net8.0::TestWaterJugAPI.ProgramTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fa8ca19f_002D216d_002D462b_002Dbc22_002Dd67bbbe5b991/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestIWaterJugSolver" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::50F829CE-FA9A-4C4D-BCA0-B7E9F5AD1C82::net8.0::TestWaterJugAPI.TestIWaterJugSolver&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

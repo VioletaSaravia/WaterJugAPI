@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.AspNetCore.Mvc;
 using WaterJugAPI.Algorithms;
 
@@ -10,19 +12,38 @@ public class WaterJugController(IWaterJugSolver waterJugSolver)
 {
     public struct WaterJugRequest
     {
-        public int XCapacity { get; set; }
-        public int YCapacity { get; set; }
+        [JsonPropertyName("x_capacity")] public int XCapacity { get; set; }
+
+        [JsonPropertyName("y_capacity")] public int YCapacity { get; set; }
+
+        [JsonPropertyName("z_amount_wanted")]
         public int ZAmountWanted { get; set; }
     }
 
     [HttpPost("solve")]
-    public ActionResult<List<Step>> SolveWaterJug(
-        [FromBody] WaterJugRequest request) => request switch
+    public async Task<ActionResult<List<Step>>> SolveWaterJug(
+        [FromBody] WaterJugRequest request)
     {
-        { XCapacity: <= 0 } => BadRequest("Invalid input value x <= 0."),
-        { YCapacity: <= 0 } => BadRequest("Invalid input value y <= 0."),
-        { ZAmountWanted: < 0 } => BadRequest("Invalid input value z < 0."),
-        _ => Ok(waterJugSolver.Solve(request.XCapacity,
-            request.YCapacity, request.ZAmountWanted))
-    };
+        switch (request)
+        {
+            case { XCapacity: <= 0 }:
+                return BadRequest("Invalid input value x <= 0.");
+            case { YCapacity: <= 0 }:
+                return BadRequest("Invalid input value y <= 0.");
+            case { ZAmountWanted: < 0 }:
+                return BadRequest("Invalid input value z < 0.");
+            default:
+                var timeoutTask = Task.Delay(TimeSpan.FromSeconds(1000),
+                    HttpContext.RequestAborted);
+                var solver = Task.Run(() => waterJugSolver.Solve(
+                    request.XCapacity,
+                    request.YCapacity, request.ZAmountWanted));
+
+                var completedTask = await Task.WhenAny(solver, timeoutTask);
+
+                return completedTask == timeoutTask
+                    ? StatusCode(504, "Request timed out.")
+                    : Ok(await solver);
+        }
+    }
 }
