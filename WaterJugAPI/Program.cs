@@ -32,12 +32,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/",
-    async (HttpContext context) =>
-    {
-        await Task.Delay(TimeSpan.FromSeconds(10), context.RequestAborted);
-        return "Success!";
-    });
-
 app.MapControllers();
 app.Run();
